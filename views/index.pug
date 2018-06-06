@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1.text-center.display-3 #{title}
+  ul.list-group
+    each article, i in articles
+      li.list-group-item
+        h1.display-4
+          a.text-primary(href='/articles/'+article._id)= article.title
+        p
+          a.text-secondary(href='/profile/'+article.author) #{article.authorName}
+        hr
+        if article.body.length >300
+          p  #{article.body.substring(0,299)}... 
+          a.btn.btn-dark(href='/articles/'+article._id) See more
+      br
+          

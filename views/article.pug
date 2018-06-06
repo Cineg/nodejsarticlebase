@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1.display-3= article.title
+  h1.text-muted.display-4.small-text Written by #{author}
+  p= article.body
+  if user
+    if user.id ==article.author
+      hr
+      a.btn.btn-info(href='/articles/edit/'+article._id) Edit
+      a.btn.btn-danger.delete-article(href='#', data-id= article._id) Delete

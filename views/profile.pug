@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1.text-center.display-4 Profile of 
+    p.text-info.d-inline #{username} 
+  hr
+  h2 Name: #{name}
+  h3 Email: #{email}
+  h5 About: #{about}
+  if user
+    if user._id ==userLogged
+      a.btn.btn-primary.text-center(href="/profile/edit/"+user.id) Edit
